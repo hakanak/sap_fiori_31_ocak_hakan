@@ -1,0 +1,45 @@
+<mvc:View controllerName="tirsan.fioriegitim3.controller.List"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+
+
+
+
+
+
+
+
+
+	<Page id="page" title="{i18n>title}">
+		<content>
+			<List id="vehicleList" items="{/EDataSet}" headerText="{i18n>VehicleStockStatu}" growing="true" growingThreshold="50" growingScrollToLoad="false">
+
+			<headerToolbar>
+				<OverflowToolbar  id="idHeadToolbar">
+					<ComboBox placeholder="VKGRP SEÇİN" items="{
+
+								path: '/EDataSet',
+								sorter: { path: 'Vkgrp'}
+
+							}" id="cbxVkgrp" change="handleChange">
+
+							<core:Item key="{Vkgrp}" text="{Vkgrp}" />
+
+							</ComboBox>
+				</OverflowToolbar>
+			</headerToolbar>
+
+
+				<ObjectListItem icon="{icon}" title="{Kunnr} - {Vkgrp}" type="Navigation" press="onPress" number="{NetwrT}" numberUnit="{Waerk}" numberState="{ path: 'NetwrT', formatter: '.formatter.renkBelirle'}">
+					<ObjectAttribute text="Toplam Adet:{ToplamT}" />
+					<ObjectAttribute text="{Name1}-{Werks}-{Vkgrp}" />
+					<markers>
+						<ObjectMarker type="{flag}" />
+					</markers>
+				</ObjectListItem>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

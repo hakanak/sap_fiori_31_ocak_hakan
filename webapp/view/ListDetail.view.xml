@@ -1,0 +1,48 @@
+<mvc:View controllerName="tirsan.fioriegitim3.controller.ListDetail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}" navButtonPress="onNavBack" showNavButton="true">
+        <content>
+            <Table id="table" inset="false"   items="{
+			path: '/EDataSet',
+			sorter: {
+				path: 'Name'
+			}
+		}">
+                <columns>
+                    <Column>
+                        <Text text="{i18n>Vbeln}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>Lgort}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>Vkgrp}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>Kunnr}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>Status}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>Netwr}" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <ObjectIdentifier title="{Vbeln}" text="{Posnr}" titleActive="true" titlePress="onTitlePress" />
+                            <Text text="{Lgort}" />
+                            <Text text="{Vkgrp}" />
+                            <Link text="{Kunnr}" press="onKunnrPress" />
+                            <ObjectStatus icon="{parts: [ {path: 'Kalab' }, {path: 'Kains' }, {path: 'Kaspe'} ], formatter:'.formatter.formatStatuIcon' }" text="{parts: [ {path: 'Kalab' }, {path: 'Kains' }, {path: 'Kaspe'} ], formatter:'.formatter.formatStatu' }" state="{parts: [ {path: 'Kalab' }, {path: 'Kains' }, {path: 'Kaspe'} ], formatter:'.formatter.formatStatuState' }" />
+
+                            <ObjectNumber number="{Netwr}" unit="{Waerk}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
